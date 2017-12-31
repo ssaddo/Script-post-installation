@@ -24,8 +24,7 @@ sed -i "21i\ "$nom" ALL=(ALL:ALL) ALL" /etc/sudoers
 # Installation du thème graphique
 echo -e "\e[38;5;75mInstallation du thème graphique..\e[0m"
 apt-get install autoconf automake libgtk-3-dev git gnome-themes-standard gtk2-engines-murrine arc-theme conky-all lightdm-gtk-greeter-settings -y
-wget -P /usr/share/backgrounds https://raw.githubusercontent.com/stephaneeee/tutodebian/master/background.png
-wget -P /usr/share/backgrounds https://raw.githubusercontent.com/stephaneeee/tutodebian/master/wallpaperflat.png
+wget -P /usr/share/backgrounds https://raw.githubusercontent.com/stephaneeee/tutodebian/master/wallpaper.jpg
 wget -P /usr/share/icons https://raw.githubusercontent.com/stephaneeee/tutodebian/master/logodebianflat.png
 wget -P /usr/share/icons https://raw.githubusercontent.com/stephaneeee/tutodebian/master/logomenu.png
 wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install-papirus-root.sh | sh
@@ -50,18 +49,6 @@ sed -i "107i\if background_image /usr/share/backgrounds/wallpaperflat.png; then"
 echo -e "\e[38;5;75mInstallation de différents logiciels..\e[0m"
 apt-get install thunderbird-l10n-fr filezilla enigmail lightning-l10n-fr gtk-redshift youtube-dl transmission guvcview simplescreenrecorder gparted gdebi simple-scan gufw mplayer mpv xboard gnuchess crawl-tiles xterm hexchat quodlibet inkscape wget inxi nmap screenfetch netselect-apt apt-transport-https menulibre higan openshot handbrake pidgin keepass2 gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav build-essential vim -y
 
-# Modification du bash
-echo -e "\e[38;5;75mModification du bash..\e[0m"
-rm /home/$nom/.bashrc
-wget -P /home/$nom/ https://raw.githubusercontent.com/stephaneeee/tutodebian/master/.bashrc
-cp /home/$nom/.bashrc /root/.bashrc
-
-# configuration de conky
-echo -e "\e[38;5;75mconfiguration de conky..\e[0m"
-wget -P /home/$nom/ https://raw.githubusercontent.com/stephaneeee/tutodebian/master/.conkyrc
-wget -P /home/ https://raw.githubusercontent.com/stephaneeee/tutodebian/master/.debupdates.sh
-chmod +x /home/.debupdates.sh
-
 # Configuration de Firefox
 echo -e "\e[38;5;75mConfiguration de Firefox..\e[0m"
 apt-get remove firefox-esr -y
@@ -77,7 +64,7 @@ echo -e "\e[38;5;75mPersonnalisation Utilisateur..\e[0m"
 su $nom -c "xfconf-query -c xsettings -p /Net/IconThemeName -s Papirus"
 su $nom -c "xfconf-query -c xsettings -p /Net/ThemeName -s Arc-Darker"
 su $nom -c "xfconf-query -c xfwm4 -p /general/theme -s Arc-Darker"
-su $nom -c "xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image -s /usr/share/backgrounds/wallpaperflat.png"
+su $nom -c "xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image -s /usr/share/backgrounds/wallpaper.jpg"
 
 # Fin du script
 echo -e "$Blue \n Fin du script :) Redémarrage nécessaire $Color_Off"
