@@ -13,7 +13,7 @@ Allez dans un dossier temporaire, par exemple /tmp :
 <pre>cd /tmp</pre>
 Obtenez le script d'installation :
 
-<pre>wget https://raw.githubusercontent.com/stephaneeee/tutodebian/master/tutodebian.sh</pre>
+<pre>wget https://raw.githubusercontent.com/tutodebian/Script-post-installation/master/tutodebian.sh</pre>
 Exécutez le script en root :
 
 <pre>su</pre>
